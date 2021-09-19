@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+/* custom colors */
+$dark-blue: #203647;
+$darker-blue: #12232E;
+$light: #EEFBFB;
+$lighter-blue: #007CC7;
+$lightest-blue: #4DA8DA;
+
+/* theme colors */
+$theme-colors: (
+    "primary": $lighter-blue,
+    "secondary": $lightest-blue,
+    "dark": $darker-blue,
+    "light": $light
+);
+
+/* navbar */
+$navbar-dark-color: $light;
+$navbar-dark-hover-color: $lightest-blue;
+$navbar-dark-active-color: $lighter-blue;
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+
