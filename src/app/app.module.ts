@@ -7,6 +7,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product.service';
 
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [
+  {path: 'category/:id', component: ProductListComponent},
+  {path: 'category', component: ProductListComponent},
+  {path: 'products', component: ProductListComponent},
+  {path: '', redirectTo: '/products', pathMatch: 'full' },
+  {path: '**', redirectTo: '/products', pathMatch: 'full' },
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +25,8 @@ import { ProductService } from './services/product.service';
   imports: [
     BrowserModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
