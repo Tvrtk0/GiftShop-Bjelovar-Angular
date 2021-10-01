@@ -1,3 +1,14 @@
-<p *ngFor="let product of products">
-    {{product.id}} {{ product.name }}: {{ product.unitPrice | currency:'USD' }}
-</p>
+<!-- The sidebar -->
+<div class="sidebar bg-dark">
+    <a class="link-light" href="#home">Item 1</a>
+    <a class="link-light" href="#news">Item 2</a>
+    <a class="link-light" href="#contact">Item 3</a>
+    <a class="link-light" href="#about">Item 4</a>
+</div>
+
+<!-- Page content -->
+<div class="content">
+    <p *ngFor="let product of products">
+        {{product.id}} {{ product.name }}: {{ product.unitPrice | currency:'USD' }}
+    </p>
+</div>
