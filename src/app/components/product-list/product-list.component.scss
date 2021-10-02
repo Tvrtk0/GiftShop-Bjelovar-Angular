@@ -6,7 +6,6 @@
     position: fixed;
     height: 100%;
     overflow: auto;
-    margin-top: 70px;
 }
   
 /* Sidebar links */
@@ -14,6 +13,15 @@
     display: block;
     padding: 16px;
     text-decoration: none;
+}
+
+.active {
+    background-color: #203647;
+}
+
+.card-bg {
+    background-color: #203647;
+    color: #EEFBFB;
 }
 
 /* Links on mouse-over */
@@ -24,8 +32,10 @@
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 div.content {
     margin-left: 200px;
+    margin-top: 70px;
     padding: 1px 16px;
-    height: 1000px;
+    height: auto;
+    background-color: #4DA8DA;
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
@@ -34,13 +44,14 @@ div.content {
         width: 100%;
         height: auto;
         position: relative;
+        margin-top: 70px;
     }
     .sidebar a {
         float: left;
     }
 
     div.content {
-        margin-left: 0;
+        margin: 0;
     }
 }
 
