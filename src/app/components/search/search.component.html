@@ -1,4 +1,9 @@
 <form class="input-group search-input">
-    <input type="text" class="form-control" placeholder="Search products">
-    <button class="btn btn-primary text-light" type="button">Traži</button>
+    <input  #searchInput
+            (keyup.enter)="doSearch(searchInput)"
+            class="form-control" placeholder="Search products">
+
+    <button (click)="doSearch(searchInput.value)" class="btn btn-primary text-light" type="button">
+        Traži
+    </button>
 </form>
