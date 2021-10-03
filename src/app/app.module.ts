@@ -9,6 +9,7 @@ import { ProductService } from './services/product.service';
 
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
 
 const routes: Routes = [
   { path: 'category/:id', component: ProductListComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ProductListComponent,
-    HomeComponent
+    HomeComponent,
+    ProductCategoryMenuComponent
   ],
   imports: [
     BrowserModule,
