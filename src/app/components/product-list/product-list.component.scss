@@ -1,8 +1,8 @@
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 div.content {
-    margin-left: 200px;
+    margin-left: 300px;
     margin-top: 70px;
-    padding: 1px 16px;
+    padding: 10px 100px;
     height: auto;
     background-color: #4DA8DA;
 }
@@ -12,8 +12,15 @@ div.content {
     color: #EEFBFB;
 }
 
+@media screen and (max-width: 1200px) {
+    div.content {
+        padding: 10px 15px;
+    }
+}
+
 @media screen and (max-width: 700px) {
     div.content {
         margin: 0;
+        padding: 10px 40px;
     }
 }
