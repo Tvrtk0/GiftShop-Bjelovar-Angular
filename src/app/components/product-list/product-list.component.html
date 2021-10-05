@@ -18,5 +18,16 @@
                 </div>
             </div>
         </div>
+
+        <!-- if there is no product -->
+        <div *ngIf="products?.length == 0" class="w-100">
+            <div class="row ">
+                <div class="col-12 col-lg-6">
+                    <div class="alert alert-warning" role="alert">             
+                        Nema pronađenih proizvoda.
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
