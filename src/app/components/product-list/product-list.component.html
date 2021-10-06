@@ -6,7 +6,9 @@
     <div class="row my-2 card-group row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         <div class="col"  *ngFor="let product of products">
             <div class="card m-2 py-3 text-center card-bg">
-                <img src="/assets/img/logo.png" class="card-img-center" style="width: 150px; align-self: center;" alt="img">
+                <a routerLink="/products/{{ product.id }}">
+                    <img src="/assets/img/logo.png" class="card-img-center" style="width: 150px; align-self: center;" alt="img">
+                </a>
                 <div class="card-body">
                     <div class="card-title">
                         {{product.id}} {{ product.name }}
@@ -14,7 +16,7 @@
                     <div class="card-text">
                         {{ product.unitPrice | currency:'USD' }}
                     </div>
-                    <a href="#" class="btn btn-primary text-light mt-3">Link</a>
+                    <a routerLink="/products/{{ product.id }}" class="btn btn-primary text-light mt-3">Detalji</a>
                 </div>
             </div>
         </div>
