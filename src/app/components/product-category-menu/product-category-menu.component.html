@@ -1,13 +1,13 @@
-<div class="sidebar bg-dark text-center">
-    <div class="mt-5 mb-1 m-3">
+<nav id="productMenu">
+    <div id="search">
         <app-search></app-search>
-    </div><br>
-
-    <ul class="menu-list">
+    </div>
+    <ul>
+        <label for="" class="text-light">Kategorije:</label>
         <li *ngFor="let tempProductCategory of productCategories">
-            <a class="link-light" routerLink="/category/{{ tempProductCategory.id }}" routerLinkActive="active">
+            <a class="link-light" routerLink="/category/{{ tempProductCategory.id }}" routerLinkActive="active" >
                 {{ tempProductCategory.categoryName }} 
             </a>
         </li>
     </ul>
-</div>
+</nav>
