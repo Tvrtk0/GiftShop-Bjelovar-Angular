@@ -1,0 +1,77 @@
+.sidebar {
+    z-index: 10;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    bottom: 20px;
+    width: 70px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #2b343b;
+    box-shadow: 10px 0 0 #4d5bf9;
+    overflow: hidden;
+    transition: width 0.5s;
+}
+
+.sidebar:hover {
+    width: 250px;
+}
+
+.sidebar ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 50px;
+}
+
+.sidebar ul li {
+    position: relative;
+    list-style: none;
+    width: 100%;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.sidebar ul li.active {
+    background-color: #4d5bf9;
+}
+
+.sidebar ul li a {
+    position: relative;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+}
+
+.sidebar ul li a:hover {
+    color: #808adf;
+}
+
+.sidebar ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.sidebar ul li a .icon i {
+    font-size: 1.5em;
+}
+
+.sidebar ul li a .title {
+    position: relative;
+    display: block;
+    padding-left: 10px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+}
+
+.sidebar ul li.active a {
+    color: #fff;
+}
