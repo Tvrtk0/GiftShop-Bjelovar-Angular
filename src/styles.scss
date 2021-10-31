@@ -121,6 +121,14 @@ text        #808adf
     //border-left: 5px solid #808adf;
 }
 
+#card-section img {
+    transition: transform .2s;
+}
+
+#card-section img:hover {
+    transform: scale(1.05);
+}
+
 .card-bg {
     background-color: #1b1b30;
     border-color: #1b1b30;
