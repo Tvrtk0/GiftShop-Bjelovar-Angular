@@ -12,6 +12,10 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
 import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { LocationComponent } from './components/location/location.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { DeliveryComponent } from './components/delivery/delivery.component';
 
 const routes: Routes = [
   { path: 'products/:id', component: ProductDetailsComponent },
@@ -19,6 +23,9 @@ const routes: Routes = [
   { path: 'category/:id', component: ProductListComponent },
   { path: 'category', component: ProductListComponent },
   { path: 'products', component: ProductListComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'delivery', component: DeliveryComponent },
+  { path: 'location', component: LocationComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/products', pathMatch: 'full' },
   { path: '**', redirectTo: '/products', pathMatch: 'full' },
@@ -31,7 +38,11 @@ const routes: Routes = [
     HomeComponent,
     ProductCategoryMenuComponent,
     SearchComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    SidebarComponent,
+    LocationComponent,
+    ContactComponent,
+    DeliveryComponent
   ],
   imports: [
     BrowserModule,
