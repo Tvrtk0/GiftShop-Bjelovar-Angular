@@ -3,22 +3,24 @@
 
 <!-- Page content -->
 <div class="content">
-    <div class="row my-2 card-group row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        <div class="card m-2 py-3 card-bg">
-            <a routerLink="/products/{{ product.id }}" class="text-center">
-                <img src="/assets/img/logo.png" class="card-img-center" style="width: 150px; align-self: center;" alt="img">
-            </a>
-            <div class="card-body">
-                <div class="card-title text-center">
-                    {{product.id}} {{ product.name }} <br>
-                    {{ product.unitPrice | currency:'USD' }} 
+    <section id="product-details">
+        <div class="row">
+            <div class="col-lg-12 col-xl-6">
+                <a routerLink="/products/{{ product.id }}">
+                    <img src="{{ product.imageUrl }}" style="width: 100%; max-width: 600px; align-self: center;" alt="{{ product.name }}">
+                </a>
+            </div>
+            <div class="col-lg-12 col-xl-6">
+                <div>
+                    <h2>{{ product.name }}</h2>
+                    <h4>{{ product.price }} kn</h4>
                 </div>
                 <hr>
-                <div class="card-text">
+                <div>
                     <p>{{ product.description }}</p>
                 </div>
                 <a routerLink="/products" class="btn btn-primary text-light mt-3">Povratak na listu proizvoda</a>
             </div>
         </div>
-    </div>
+    </section>
 </div>
