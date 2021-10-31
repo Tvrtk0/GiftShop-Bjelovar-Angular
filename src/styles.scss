@@ -9,7 +9,7 @@ $lightest-blue: #4DA8DA;
 
 /* theme colors */
 $theme-colors: (
-    "primary": $lighter-blue,
+    "primary": #4d5bf9,
     "secondary": $lightest-blue,
     "dark": $darker-blue,
     "light": $light
@@ -27,25 +27,102 @@ $navbar-dark-active-color: $lightest-blue;
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;300&display=swap');
+
+
 /* ------------------------ CSS ------------------------ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', serif;
+}
 
 /* Smooth scroll */
 html {
     scroll-behavior: smooth;
 }
 
+body {
+    min-height: 100vh;
+    background-color: #0a0a15;
+}
+
 /* map */
 .map{
     overflow:hidden;
-    padding-bottom:40%;
-    position:relative;
-    height:0;
+    padding-bottom: 50vh;
+    position: relative;
+    height: 0;
 }
 
 .map iframe{
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+
+/* products */
+.content {
+    margin-left: 390px;
+    padding: 20px 0px;
+    height: auto;
+    min-height: 100vh;
+    background-color: #0a0a15;//#1F1926;
+}
+
+/*
+dark bg     #0a0a15
+purple      #4d5bf9
+secundary   #1b1b30
+blue        #0e0240
+text        #808adf
+*/
+
+#search {
+    max-width: 450px;
+    padding-left: 5px;
+}
+
+#card-section {
+    margin: 0;
+    padding: 30px;
+    background-color: #0a0a15;
+    min-height: 95vh;
+    //border-top-right-radius: 10px;
+    //border-bottom-right-radius: 10px;
+    //border-left: 5px solid #808adf;
+}
+
+.card-bg {
+    background-color: #1b1b30;
+    border-color: #1b1b30;
+    color: #fff;
+}
+
+@media screen and (max-width: 1200px) {
+    .content {
+        padding: 10px 15px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .content {
+        margin: 0;
+        padding: 10px 40px;
+    }
+}
+
+#product-details {
+    margin-left: 30px;
+    padding: 30px;
+    border-radius: 10px;
+    min-height: 95vh;
+    background-color: #1b1b30;
+    color: #fff;
 }
