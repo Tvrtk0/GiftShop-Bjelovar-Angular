@@ -107,13 +107,38 @@ text        #808adf
 */
 
 #search {
-    max-width: 450px;
-    padding-left: 5px;
+    max-width: 500px;
+    padding-left: 25px;
+}
+
+#pagination {
+    padding-left: 15px;
+}
+
+#pagination ngb-pagination a {
+    border-color: #4d5bf9 !important;
+    background-color: #1b1b30 !important;
+    color: #fff !important;
+}
+
+#pagination ngb-pagination .page-item.active .page-link {
+    border-color: #4d5bf9 !important;
+    background-color: #4d5bf9 !important;
+    color: #fff !important;
+}
+
+#pagination ngb-pagination .page-item.active .page-link:focus, .page-link:not(:disabled):not(.disabled):active:focus {
+    box-shadow: 0 0 0 0.1rem #808adf;
+}
+
+#pagination ngb-pagination .page-link:not(:disabled):not(.disabled):active:focus {
+    box-shadow: 0 0 0 0.1rem #808adf;
 }
 
 #card-section {
     margin: 0;
     padding: 30px;
+    padding-top: 0;
     background-color: #0a0a15;
     min-height: 95vh;
     //border-top-right-radius: 10px;
