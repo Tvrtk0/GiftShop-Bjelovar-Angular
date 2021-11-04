@@ -19,6 +19,8 @@ export class ProductListComponent implements OnInit {
   pageNumber: number = 1;
   pageSize: number = 9;
   totalElements: number = 0;
+  numberOfPages: number = 0;
+  boundaryLinks: boolean = false;
 
   previousKeyword: string = null;
 
@@ -72,17 +74,6 @@ export class ProductListComponent implements OnInit {
     ).subscribe(this.processResult());
   }
 
-  // spring pages start with 0, angular with 1
-  // class properties = data from REST JSON
-  processResult() {
-    return data => {
-      this.products = data._embedded.products;
-      this.pageNumber = data.page.number + 1;
-      this.pageSize = data.page.size;
-      this.totalElements = data.page.totalElements;
-    }
-  }
-
   handleSearchProducts() {
     const theKeyword: string = this.route.snapshot.paramMap.get('keyword');
 
@@ -99,5 +90,26 @@ export class ProductListComponent implements OnInit {
       this.pageSize,
       theKeyword
     ).subscribe(this.processResult());
+  }
+
+  // spring pages start with 0, angular with 1
+  // class properties = data from REST JSON
+  processResult() {
+    return data => {
+      this.products = data._embedded.products;
+      this.pageNumber = data.page.number + 1;
+      this.pageSize = data.page.size;
+      this.totalElements = data.page.totalElements;
+      this.updateNumberOfPages();
+    }
+  }
+
+  updateNumberOfPages() {
+    this.numberOfPages = Math.round(this.totalElements / this.pageSize);
+      if (this.numberOfPages > 3) {
+        this.boundaryLinks = true;
+      } 
+      else this.boundaryLinks = false;
+      console.log(`number of pages: ${this.numberOfPages}`);
   }
 }
