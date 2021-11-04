@@ -7,6 +7,16 @@
         <div id="search">
             <app-search></app-search>
         </div>
+        <div class="pagination">
+            <ngb-pagination [(page)]="pageNumber"
+                            [pageSize]="pageSize"
+                            [collectionSize]="totalElements"
+                            [maxSize]="5"
+                            [boundaryLinks]="true"
+                            (pageChange)="listProducts()">
+
+            </ngb-pagination>
+        </div>
         <div class="row my-2 card-group row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3 g-4">
             <div class="col"  *ngFor="let product of products">
                 <div class="card m-2 py-3 text-center card-bg">
