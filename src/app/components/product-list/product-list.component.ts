@@ -8,6 +8,7 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
+
 export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
@@ -16,8 +17,10 @@ export class ProductListComponent implements OnInit {
   searchMode: boolean = false;
 
   pageNumber: number = 1;
-  pageSize: number = 3;
+  pageSize: number = 9;
   totalElements: number = 0;
+
+  previousKeyword: string = null;
 
   constructor(private productService: ProductService,
               private route: ActivatedRoute) { }
@@ -83,11 +86,18 @@ export class ProductListComponent implements OnInit {
   handleSearchProducts() {
     const theKeyword: string = this.route.snapshot.paramMap.get('keyword');
 
+    // check if we have a different keyword than previous
+    if (this.previousKeyword != theKeyword) {
+      this.pageNumber = 1;
+    }
+
+    this.previousKeyword = theKeyword;
+
     // search for products using keyword
-    this.productService.searchProducts(theKeyword).subscribe(
-      data => {
-        this.products = data;
-      }
-    )
+    this.productService.searchProductsPaginate(
+      this.pageNumber - 1,
+      this.pageSize,
+      theKeyword
+    ).subscribe(this.processResult());
   }
 }
