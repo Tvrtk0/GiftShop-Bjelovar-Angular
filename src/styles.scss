@@ -1,28 +1,23 @@
 /* ------------------------ SCSS ------------------------ */
-
-/* custom colors */
-$dark-blue: #203647;
-$darker-blue: #12232E;
-$light: #EEFBFB;
-$lighter-blue: #007CC7;
-$lightest-blue: #4DA8DA;
+/* main colors */
+$color-primary: #4d5bf9;
+$color-secondary: #808adf;
+$color-dark-primary: #0a0a15;
+$color-dark-secondary: #1b1b30;
+$color-light: #D5D9F6;
 
 /* theme colors */
 $theme-colors: (
-    "primary": #4d5bf9,
-    "secondary": $lightest-blue,
-    "dark": $darker-blue,
-    "light": $light
+    "primary": $color-primary,
+    "secondary": $color-secondary,
+    "dark": $color-dark-primary,
+    "light": $color-light
 );
 
-.bg-dark-2 {
-    background-color: #203647;
-}
-
 /* navbar */
-$navbar-dark-color: $light;
-$navbar-dark-hover-color: $lightest-blue;
-$navbar-dark-active-color: $lightest-blue;
+$navbar-dark-color: $color-dark-primary;
+$navbar-dark-hover-color: $color-light;
+$navbar-dark-active-color: $color-primary;
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
@@ -32,7 +27,6 @@ $navbar-dark-active-color: $lightest-blue;
 
 
 /* ------------------------ CSS ------------------------ */
-
 * {
     margin: 0;
     padding: 0;
@@ -40,36 +34,31 @@ $navbar-dark-active-color: $lightest-blue;
     font-family: 'Kanit', serif;
 }
 
-/* Smooth scroll */
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* smooth scroll */
 }
 
 body {
     min-height: 100vh;
-    background-color: #0a0a15;
+    background-color: $color-dark-primary;
 }
 
 ::-webkit-scrollbar {
     width: 0.4em;
 }
-
 ::-webkit-scrollbar-track {
-    background-color: #1b1b30;
+    background-color: $color-dark-secondary;
 }
-
 ::-webkit-scrollbar-thumb {
-    background: #4d5bf9;
+    background: $color-primary;
 }
-
 ::-moz-selection { /* Code for Firefox */
-    color: #0a0a15;
-    background: #4d5bf9;
+    color: $color-dark-primary;
+    background: $color-primary;
 }
-
 ::selection {
-color: #0a0a15;
-background: #4d5bf9;
+    color: $color-dark-primary;
+    background: $color-primary;
 }
 
 /* map */
@@ -79,7 +68,6 @@ background: #4d5bf9;
     position: relative;
     height: 0;
 }
-
 .map iframe{
     left: 0;
     top: 0;
@@ -88,23 +76,14 @@ background: #4d5bf9;
     position: absolute;
 }
 
-
 /* products */
 .content {
     margin-left: 390px;
     padding: 20px 0px;
     height: auto;
     min-height: 100vh;
-    background-color: #0a0a15;//#1F1926;
+    background-color: $color-dark-primary;
 }
-
-/*
-dark bg     #0a0a15
-purple      #4d5bf9
-secundary   #1b1b30
-blue        #0e0240
-text        #808adf
-*/
 
 #search {
     max-width: 500px;
@@ -116,23 +95,23 @@ text        #808adf
 }
 
 #pagination ngb-pagination a {
-    border-color: #4d5bf9 !important;
-    background-color: #1b1b30 !important;
+    border-color: $color-primary !important;
+    background-color: $color-dark-secondary !important;
     color: #fff !important;
 }
 
 #pagination ngb-pagination .page-item.active .page-link {
-    border-color: #4d5bf9 !important;
-    background-color: #4d5bf9 !important;
+    border-color: $color-primary !important;
+    background-color: $color-primary !important;
     color: #fff !important;
 }
 
 #pagination ngb-pagination .page-item.active .page-link:focus, .page-link:not(:disabled):not(.disabled):active:focus {
-    box-shadow: 0 0 0 0.1rem #808adf;
+    box-shadow: 0 0 0 0.1rem $color-secondary;
 }
 
 #pagination ngb-pagination .page-link:not(:disabled):not(.disabled):active:focus {
-    box-shadow: 0 0 0 0.1rem #808adf;
+    box-shadow: 0 0 0 0.1rem $color-secondary;
 }
 
 #card-section {
