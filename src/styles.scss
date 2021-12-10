@@ -10,14 +10,14 @@ $color-light: #D5D9F6;
 $theme-colors: (
     "primary": $color-primary,
     "secondary": $color-secondary,
-    "dark": $color-dark-primary,
+    "dark": $color-dark-secondary,
     "light": $color-light
 );
 
 /* navbar */
-$navbar-dark-color: $color-dark-primary;
+$navbar-dark-color: $color-secondary;
 $navbar-dark-hover-color: $color-light;
-$navbar-dark-active-color: $color-primary;
+$navbar-dark-active-color: $color-light;
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
