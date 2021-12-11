@@ -3,57 +3,58 @@
 
 <!-- Page content -->
 <div class="content">
-    <nav class="container-fluid">
-        <div class="row">
-            <div class="col-xl-4">
-                <div id="search">
-                    <app-search></app-search>
+    <div class="container-fluid">
+        <nav>
+            <div class="row">
+                <div class="col-xl-4 col-lg-6 col-sm-12 pl-3">
+                    <div id="search">
+                        <app-search></app-search>
+                    </div>
                 </div>
-            </div>
-            <div class="col-xl-8">
-                <div id="pagination">
-                    <ngb-pagination [(page)]="pageNumber"
-                                    [pageSize]="pageSize"
-                                    [collectionSize]="totalElements"
-                                    [maxSize]="5"
-                                    [boundaryLinks]="boundaryLinks"
-                                    (pageChange)="listProducts()">
-        
-                    </ngb-pagination>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <section id="card-section">
-        <div class="row my-2 card-group row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3 g-4">
-            <div class="col"  *ngFor="let product of products">
-                <div class="card m-2 py-3 text-center card-bg">
-                    <a routerLink="/products/{{ product.id }}">
-                        <img src="{{ product.imageUrl }}" class="card-img-center" style="width: 70%; align-self: center; padding-top:20px" alt="img">
-                    </a>
-                    <div class="card-body">
-                        <div class="card-title">
-                            {{ product.name }}
-                        </div>
-                        <div class="card-text">
-                            {{ product.price }} kn
-                        </div>
-                        <a routerLink="/products/{{ product.id }}" class="btn btn-primary text-light mt-3">Detalji</a>
+                <div class="col-xl-8 col-lg-6 col-sm-12 pt-3 pl-3 pt-lg-0 ">
+                    <div id="pagination">
+                        <ngb-pagination [(page)]="pageNumber"
+                                        [pageSize]="pageSize"
+                                        [collectionSize]="totalElements"
+                                        [maxSize]="5"
+                                        [boundaryLinks]="boundaryLinks"
+                                        (pageChange)="listProducts()">
+            
+                        </ngb-pagination>
                     </div>
                 </div>
             </div>
-    
-            <!-- if there is no product -->
-            <div *ngIf="products?.length == 0" class="w-100">
-                <div class="row ">
-                    <div class="col-12 col-lg-6">
-                        <div class="alert alert-warning" role="alert">             
-                            Nema pronađenih proizvoda.
+        </nav>
+        <section id="card-section">
+                <div class="row my-2 card-group row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 g-3">
+                    <div class="col"  *ngFor="let product of products">
+                        <div class="card m-2 py-3 text-center card-bg">
+                            <a routerLink="/products/{{ product.id }}">
+                                <img src="{{ product.imageUrl }}" class="card-img-center" style="width: 70%; align-self: center; padding-top:20px" alt="img">
+                            </a>
+                            <div class="card-body">
+                                <div class="card-title">
+                                    {{ product.name }}
+                                </div>
+                                <div class="card-text">
+                                    {{ product.price }} kn
+                                </div>
+                                <a routerLink="/products/{{ product.id }}" class="btn btn-primary text-light mt-3">Detalji</a>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- if there is no product -->
+                    <div *ngIf="products?.length == 0" class="w-100">
+                        <div class="row ">
+                            <div class="col-12 col-lg-6">
+                                <div class="alert alert-warning" role="alert">             
+                                    Nema pronađenih proizvoda.
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-    
-        </div>
-    </section>
+        </section>
+    </div>
 </div>
