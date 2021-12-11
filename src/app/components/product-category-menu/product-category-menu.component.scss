@@ -1,21 +1,10 @@
-#search {
-    position: relative;
-    padding-top: 30px;
-    padding-left: 30px;
-    padding-right: 10px;
-    width: 100%;
-    z-index: 10;
-}
-
 #productMenu {
     position: fixed;
-    top: 20px;
-    left: 90px;
-    bottom: 20px;
+    top: 72px;
+    left: 0;
+    bottom: 0;
     width: 300px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    background-color: #1b1b30;
+    background-color: #121221;
 }
 
 #productMenu ul {
@@ -23,31 +12,32 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding-left: 30px;
-    padding-top: 5em;
+    padding-left: 2em;
+    padding-top: 2em;
 }
 
 #productMenu ul label {
-    margin-bottom: 10px;
+    margin-bottom: 1em;
+    color: #fff;
 }
 
 #productMenu ul li {
     position: relative;
     list-style: none;
     width: 100%;
-    // border-left: 7px solid #4d5bf9;
-    padding-left: 10px;
-    line-height: 35px;
+    padding-left: 1.5em;
+    line-height: 2.4em;
+    border-left: 3px solid #4d5bf9;
 }
 
 #productMenu ul li .active {
     text-decoration: underline;
+    color: #fff;
 }
 
 #productMenu ul li a {
     position: relative;
     width: 100%;
-    color: #fff;
     text-decoration: none;
 }
 

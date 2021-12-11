@@ -43,6 +43,10 @@ body {
     background-color: $color-dark-primary;
 }
 
+main.main {
+    padding-top: 70px;
+}
+
 ::-webkit-scrollbar {
     width: 0.4em;
 }
@@ -78,8 +82,8 @@ body {
 
 /* products */
 .content {
-    margin-left: 390px;
-    padding: 20px 0px;
+    margin-left: 300px;
+    padding: 40px 0px;
     height: auto;
     min-height: 100vh;
     background-color: $color-dark-primary;

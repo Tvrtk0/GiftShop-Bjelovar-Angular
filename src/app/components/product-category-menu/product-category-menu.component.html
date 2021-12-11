@@ -1,6 +1,6 @@
 <nav id="productMenu">
     <ul>
-        <label for="" class="text-light">Kategorije:</label>
+        <label>Kategorije:</label>
         <li *ngFor="let tempProductCategory of productCategories">
             <a class="link-light" routerLink="/category/{{ tempProductCategory.id }}" routerLinkActive="active" >
                 {{ tempProductCategory.categoryName }} 
