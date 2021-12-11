@@ -1,23 +1,22 @@
-<!-- <div class="login-status-header">
-    <div *ngIf="isAuthenticated && userFullName">
-        Welcome back {{ userFullName }}
-    </div>
-    
-    <button *ngIf="!isAuthenticated" routerLink="/login">Login</button>
-    <button *ngIf="isAuthenticated" (click)="logout()">Logout</button>
-</div> -->
-
-
-<div *ngIf="!isAuthenticated" routerLink="/login">
-    <span class="icon" >
-        <i class="fas fa-user-cog"></i>
-    </span>
-    <span class="title">Login</span>
-</div>
-
-<div *ngIf="isAuthenticated" (click)="logout()">
-    <span class="icon">
-        <i class="fas fa-user-cog"></i>
-    </span>
-    <span class="title">{{ userFullName }} | Logout</span>
-</div>
+<li *ngIf="!isAuthenticated" class="nav-item px-2">
+    <a class="nav-link" routerLinkActive="active" routerLink="/login">
+        <!-- Login -->
+        <span class="icon">
+            <i class="fas fa-user"></i> <!-- fa-user-cog -->
+        </span>
+    </a>
+</li>
+<li *ngIf="isAuthenticated" class="nav-item dropdown px-2">
+    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        {{ userFullName }}
+    </a>
+    <ul class="dropdown-menu navbar-dark bg-dark" aria-labelledby="navbarDropdownMenuLink">
+        <li>
+            <a class="nav-link" routerLinkActive="active" (click)="logout()" href="#">Logout</a>
+        </li>
+        <li>
+            <a class="nav-link" routerLinkActive="active" routerLink="/admin">Admin</a>
+        </li>
+    </ul>
+</li>
