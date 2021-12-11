@@ -47,6 +47,14 @@ main.main {
     padding-top: 70px;
 }
 
+a {
+    color: $color-primary;
+}
+
+a:hover {
+    color: $color-secondary;
+}
+
 ::-webkit-scrollbar {
     width: 0.4em;
 }
