@@ -57,7 +57,7 @@ const routes: Routes = [
   { path: 'delivery', component: DeliveryComponent },
   { path: 'location', component: LocationComponent },
   { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/products', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/products', pathMatch: 'full' },
 ];
 
