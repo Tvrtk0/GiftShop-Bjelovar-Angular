@@ -31,6 +31,7 @@ import myAppConfig from './config/app-config';
 
 import { AdminComponent } from './components/admin/admin.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProductTableComponent } from './components/product-table/product-table.component';
 
 const oktaConfig = Object.assign({
   onAuthRequired: (oktaAuth, injector) => {
@@ -44,6 +45,7 @@ const oktaConfig = Object.assign({
 const oktaAuth = new OktaAuth(oktaConfig);
 
 const routes: Routes = [
+  { path: 'admin/:idCat/products', component: ProductTableComponent, canActivate: [OktaAuthGuard] },
   { path: 'admin', component: AdminComponent, canActivate: [OktaAuthGuard] },
   { path: 'login/callback', component: OktaCallbackComponent },
   { path: 'login', component: LoginComponent },
@@ -76,7 +78,8 @@ const routes: Routes = [
     LoginComponent,
     LoginStatusComponent,
     AdminComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProductTableComponent
   ],
   imports: [
     BrowserModule,
