@@ -73,6 +73,13 @@ export class ProductService {
     return this.httpClient.get<Product>(productUrl);
   }
 
+  getProductCategory(theCategoryId: number): Observable<ProductCategory> {
+
+    const productCateroryUrl = `${this.categoryUrl}/${theCategoryId}`;
+
+    return this.httpClient.get<ProductCategory>(productCateroryUrl);
+  }
+
 }
 
 // Unwraps the JSON from Spring Data Rest _embedded entry
