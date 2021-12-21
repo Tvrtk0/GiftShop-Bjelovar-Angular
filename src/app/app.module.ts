@@ -30,6 +30,7 @@ import myAppConfig from './config/app-config';
 import { AdminComponent } from './components/admin/admin.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductTableComponent } from './components/product-table/product-table.component';
+import { ProductCategoryTableComponent } from './components/product-category-table/product-category-table.component';
 
 const oktaConfig = Object.assign({
   onAuthRequired: (oktaAuth, injector) => {
@@ -43,8 +44,16 @@ const oktaConfig = Object.assign({
 const oktaAuth = new OktaAuth(oktaConfig);
 
 const routes: Routes = [
-  { path: 'admin/:idCat/products', component: ProductTableComponent, canActivate: [OktaAuthGuard] },
-  { path: 'admin', component: AdminComponent, canActivate: [OktaAuthGuard] },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  
+  { 
+    path: 'admin', component: AdminComponent, canActivate: [OktaAuthGuard],
+    children : [
+      { path: '', redirectTo: 'category', pathMatch: 'full'},
+      { path: 'category/:idCat/products', component: ProductTableComponent, canActivateChild: [OktaAuthGuard] },
+      { path: 'category', component: ProductCategoryTableComponent, canActivateChild: [OktaAuthGuard] },
+    ]
+  },
   { path: 'login/callback', component: OktaCallbackComponent },
   { path: 'login', component: LoginComponent },
 
@@ -55,7 +64,6 @@ const routes: Routes = [
   { path: 'products', component: ProductListComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/products', pathMatch: 'full' },
 ];
 
@@ -73,7 +81,8 @@ const routes: Routes = [
     LoginStatusComponent,
     AdminComponent,
     NavbarComponent,
-    ProductTableComponent
+    ProductTableComponent,
+    ProductCategoryTableComponent
   ],
   imports: [
     BrowserModule,
