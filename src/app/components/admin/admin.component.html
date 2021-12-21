@@ -1,34 +1,11 @@
-<div class="container bg-dark mt-5 py-3 px-sm-5 px-2">
+<div class="container bg-dark mt-4 py-3 px-sm-5 px-2">
     <div class="row">
         <div class="col py-3">
-            <button class="btn button btn-primary">Dodaj novu kategoriju</button>
+            <button routerLink="category" class="btn button btn-primary mr-3">Tablica Kategorija</button>
+            <button class="btn button btn-primary mr-3">Dodaj Kategoriju</button>
+            <button class="btn button btn-primary">Dodaj Proizvod</button>
         </div>
     </div>
-    <div class="row">
-        <div class="col text-light pt-3">
-            <h2>Kategorije</h2>
-        </div>
-    </div>
-    <div class="table-responsive mt-3" id="category-table">
-        <table class="table table-dark table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Category Name</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
-                </tr>
-            </thead>
-            <tbody *ngFor="let tempProductCategory of productCategories; let i = index">
-                <tr routerLink="{{ tempProductCategory.id }}/products">
-                    <th scope="row"> {{ tempProductCategory.id }} </th>
-                    <td><a routerLink="{{ tempProductCategory.id }}/products">
-                        {{ tempProductCategory.categoryName }}
-                    </a></td> 
-                    <td><a href="#">Uredi</a></td>
-                    <td><a href="#" class="text-danger">Obriši</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    
+    <router-outlet></router-outlet>
 </div>
