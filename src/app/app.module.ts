@@ -13,9 +13,7 @@ import { ProductCategoryMenuComponent } from './components/product-category-menu
 import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { LocationComponent } from './components/location/location.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { DeliveryComponent } from './components/delivery/delivery.component';
 
 import { LoginComponent } from './components/login/login.component';
 import { LoginStatusComponent } from './components/login-status/login-status.component';
@@ -56,8 +54,6 @@ const routes: Routes = [
   { path: 'category', component: ProductListComponent },
   { path: 'products', component: ProductListComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'delivery', component: DeliveryComponent },
-  { path: 'location', component: LocationComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/products', pathMatch: 'full' },
@@ -72,9 +68,7 @@ const routes: Routes = [
     SearchComponent,
     ProductDetailsComponent,
     SidebarComponent,
-    LocationComponent,
     ContactComponent,
-    DeliveryComponent,
     LoginComponent,
     LoginStatusComponent,
     AdminComponent,
