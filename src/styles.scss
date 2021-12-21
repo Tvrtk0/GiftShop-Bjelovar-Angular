@@ -179,10 +179,12 @@ a:hover {
     color: #fff;
 }
 
-#category-table a {
+.admin-table a {
     color: $color-light;
+    text-decoration: none;
 }
 
-#category-table a:hover {
+.admin-table a:hover {
     color: $color-primary;
+    text-decoration: underline;
 }
