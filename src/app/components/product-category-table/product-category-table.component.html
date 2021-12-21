@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col text-light pt-3">
+        <h2>Kategorije</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+    <div class="table-responsive mt-3 admin-table">
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <!-- <th scope="col">ID</th> -->
+                    <th scope="col">Naziv Kategorije</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let tempProductCategory of productCategories; let i = index">
+                <tr>
+                    <!-- <th scope="row"> {{ tempProductCategory.id }} </th> -->
+                    <td><a routerLink="{{ tempProductCategory.id }}/products">
+                        {{ tempProductCategory.categoryName }}
+                    </a></td> 
+                    <td><a href="#">Uredi</a></td>
+                    <td><a href="#" class="text-danger">Obriši</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div></div>
+</div>
