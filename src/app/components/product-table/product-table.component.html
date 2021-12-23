@@ -1,41 +1,32 @@
-<div class="container bg-dark mt-5 py-3 px-sm-5 px-2">
-    <div class="row">
-        <div class="col py-3">
-            <button class="btn button btn-primary mr-3">Dodaj novi proizvod</button>
-            <a routerLink="/admin">Povratak na kategorije</a>
-            <!-- <button routerLink="/admin" class="btn button btn-primary">Povratak na kategorije</button> -->
-        </div>
+<div class="row">
+    <div class="col text-light pt-3">
+        <h2>{{ currentCategory.categoryName }}</h2>
     </div>
-    <div class="row">
-        <div class="col text-light pt-3">
-            <h2>{{ currentCategory.categoryName }}</h2>
-        </div>
-    </div>
-    <div class="table-responsive mt-3" id="category-table">
-        <table class="table table-dark table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Naziv Proizvoda</th>
-                    <th scope="col">Arhiva</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
-                </tr>
-            </thead>
-            <tbody *ngFor="let product of products">
-                <tr>
-                    <th scope="row">{{ product.id }}</th>
-                    <td><a href="#">{{ product.name }}</a></td> 
-                    <td *ngIf="product.archive">
-                        <i class="fas fa-check text-light"></i> 
-                    </td>
-                    <td *ngIf="!product.archive">
-                        <i class="fas fa-times text-light"></i>
-                    </td>
-                    <td><a href="#">Uredi</a></td>
-                    <td><a href="#" class="text-danger">Obriši</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+</div>
+<div class="table-responsive mt-3 admin-table">
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <!-- <th scope="col">ID</th> -->
+                <th scope="col">Naziv Proizvoda</th>
+                <th scope="col">Arhiva</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let product of products">
+            <tr>
+                <!-- <th scope="row">{{ product.id }}</th> -->
+                <td><a routerLink="/products/{{product.id}}">{{ product.name }}</a></td> 
+                <td *ngIf="product.archive">
+                    <i class="fas fa-check text-light"></i> 
+                </td>
+                <td *ngIf="!product.archive">
+                    <i class="fas fa-times text-light"></i>
+                </td>
+                <td><a href="#">Uredi</a></td>
+                <td><a href="#" class="text-danger">Obriši</a></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
