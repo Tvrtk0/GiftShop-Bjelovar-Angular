@@ -13,7 +13,7 @@ export class ProductTableComponent implements OnInit {
 
   products: Product[] = []; 
   currentCategoryId: number = 1;
-  currentCategory: ProductCategory = null;
+  currentCategory: ProductCategory = new(ProductCategory);
 
   constructor(private productService: ProductService,
               private route: ActivatedRoute) { }
