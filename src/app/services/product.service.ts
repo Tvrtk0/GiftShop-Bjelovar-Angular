@@ -65,6 +65,15 @@ export class ProductService {
     );
   }
 
+  getProductsByDate(): Observable<Product[]> {
+
+    const searchUrl = `${this.baseUrl}/search/findTop4ByOrderByDateCreatedDesc`;
+
+    return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
+      map(response => response._embedded.products)
+    )
+  }
+
   getProduct(theProductId: number): Observable<Product> {
 
     // URL based on id
