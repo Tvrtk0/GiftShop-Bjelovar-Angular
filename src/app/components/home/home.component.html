@@ -32,3 +32,35 @@
     </div>
 </section>
 <!-- Search end -->
+
+<section class="py-5 mt-3">
+    <div class="container">
+        <h2>Novo u ponudi</h2>
+        <div class="row my-3 card-group row-cols-2 row-cols-lg-4 g-3">
+            <div class="col"  *ngFor="let product of products">
+                <div class="card text-center card-bg py-3">
+                    <a routerLink="/products/{{ product.id }}">
+                        <img src="{{ product.imageUrl }}" class="card-img-center" style="width: 80%; align-self: center; padding-top:20px" alt="img">
+                    </a>
+                    <div class="card-body">
+                        <div class="card-title">
+                            <a routerLink="/products/{{ product.id }}" class="link-light">{{ product.name }}</a>
+                        </div>
+                        <div class="card-text text-light">
+                            {{ product.price }} kn
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 mb-5">
+    <div class="container">
+        <h2>Sublimacija šalica po želji</h2>
+        <div class="row">
+            
+        </div>
+    </div>
+</section>
