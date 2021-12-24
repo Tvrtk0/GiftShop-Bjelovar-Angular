@@ -41,7 +41,7 @@ $table-hover-bg: $color-dark-primary !important;
 }
 
 html {
-    scroll-behavior: smooth; /* smooth scroll */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -61,6 +61,32 @@ a {
 a:hover {
     color: $color-secondary;
 }
+
+footer {
+    z-index: 10;
+    position: relative;
+}
+
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 1em;
+}
+
+.footer-link {
+    color: $color-light;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: $color-primary;
+    text-decoration: underline;
+}
+
 
 .white {
     color: #fff !important;
@@ -112,9 +138,6 @@ a:hover {
     width: 100%;
     //max-width: 500px;
 }
-
-//#pagination { 
-//}   
 
 #pagination ngb-pagination a {
     border-color: $color-primary !important;
@@ -188,6 +211,10 @@ a:hover {
 .admin-table a:hover {
     color: $color-primary;
     text-decoration: underline;
+}
+
+#admin {
+    min-height: 70vh;
 }
 
 .delete-link {

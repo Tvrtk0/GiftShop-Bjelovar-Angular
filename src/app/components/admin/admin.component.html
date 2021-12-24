@@ -1,11 +1,13 @@
-<div class="container bg-dark mt-4 py-3 px-sm-5">
-    <div class="row">
-        <div class="col py-3">
-            <button routerLink="category" class="btn button btn-primary mr-3">Tablica Kategorija</button>
-            <button routerLink="category/add" class="btn button btn-primary mr-3">Dodaj Kategoriju</button>
-            <button class="btn button btn-primary">Dodaj Proizvod</button>
+<section id="admin">
+    <div class="container bg-dark my-5 py-3 px-sm-5">
+        <div class="row">
+            <div class="py-3">
+                <button routerLink="category" class="btn button btn-primary mr-3 mb-3">Tablica Kategorija</button>
+                <button routerLink="category/add" class="btn button btn-primary mr-3 mb-3">Dodaj Kategoriju</button>
+                <button class="btn button btn-primary mb-3">Dodaj Proizvod</button>
+            </div>
         </div>
+        
+        <router-outlet></router-outlet>
     </div>
-    
-    <router-outlet></router-outlet>
-</div>
+</section>
