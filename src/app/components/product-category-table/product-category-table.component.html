@@ -22,7 +22,11 @@
                         {{ tempProductCategory.categoryName }}
                     </a></td> 
                     <td><a href="#">Uredi</a></td>
-                    <td><a href="#" class="text-danger">Obriši</a></td>
+                    <td>
+                        <a class="delete-link" (click)="deleteCategory(tempProductCategory.id, tempProductCategory.categoryName)">
+                            Obriši
+                        </a>
+                    </td>
                 </tr>
             </tbody>
         </table>

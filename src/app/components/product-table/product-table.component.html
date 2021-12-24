@@ -25,7 +25,12 @@
                     <i class="fas fa-times text-light"></i>
                 </td>
                 <td><a href="#">Uredi</a></td>
-                <td><a href="#" class="text-danger">Obriši</a></td>
+                <!-- <td><a href="#" class="text-danger">Obriši</a></td> -->
+                <td>
+                    <a class="delete-link" (click)="deleteProduct(product.id, product.name)">
+                        Obriši
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>

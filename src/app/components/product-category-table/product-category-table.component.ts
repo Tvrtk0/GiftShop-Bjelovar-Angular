@@ -24,4 +24,10 @@ export class ProductCategoryTableComponent implements OnInit {
       }
     );
   }
+
+  deleteCategory(categoryId: number, categoryName: string) {
+    if (confirm("Delete: " + categoryName.toUpperCase())) {
+      console.log("delete: " + categoryId);
+    }
+  }
 }
