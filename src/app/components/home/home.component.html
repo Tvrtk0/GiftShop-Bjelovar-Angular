@@ -25,8 +25,11 @@
             <h3 class="mb-3 mb-lg-0 white">Pronađi proizvode</h3>
 
             <form class="input-group search-input">
-                <input type="text" class="form-control" placeholder="Search products">
-                <button class="btn btn-dark" type="button">Traži</button>
+                <input  #searchInput 
+                        (keyup.enter)="doSearch(searchInput)" 
+                        class="form-control" placeholder="Search products">
+                <button (click)="doSearch(searchInput.value)" 
+                        class="btn btn-dark">Traži</button>
             </form>
         </div>
     </div>
