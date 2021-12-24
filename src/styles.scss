@@ -188,3 +188,14 @@ a:hover {
     color: $color-primary;
     text-decoration: underline;
 }
+
+.delete-link {
+    text-decoration:none;
+    color: hsl(0, 80%, 55%) !important;
+}
+
+.delete-link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: hsl(0, 80%, 55%) !important;
+}
