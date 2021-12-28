@@ -43,7 +43,7 @@
             <div class="col"  *ngFor="let product of products">
                 <div class="card text-center card-bg py-3">
                     <a routerLink="/products/{{ product.id }}">
-                        <img src="{{ product.imageUrl }}" class="card-img-center" style="width: 80%; align-self: center; padding-top:20px" alt="img">
+                        <img src="{{ product.imageUrl }}" class="card-img-center" style="width: 80%; align-self: center; padding-top:20px" alt="{{ product.name }}">
                     </a>
                     <div class="card-body">
                         <div class="card-title">
@@ -59,10 +59,29 @@
     </div>
 </section>
 
-<section class="py-5 mb-5">
-    <div class="container">
+<section class="py-3 mb-5">
+    <div class="container p-4">
         <h2>Sublimacija šalica po želji</h2>
-        <div class="row">
+        <div class="row card-group pt-3">  
+            <div class="col-12 col-lg-6 col-xl-5 pt-lg-0">
+                <p>
+                    Osim raznovrsne ponude šalica, nudimo Vam i opciju izrade personalizirane šalice - odabir slike i teksta po želji!
+                    Više informacija u trgovini po dogovoru.
+                </p>
+                <button routerLink="/category/11" class="btn btn-primary mt-2 mb-4">
+                    Prikaži sve šalice
+                </button>
+            </div>
+            <div class="col-6 col-lg-3">
+                <a routerLink="/category/11">
+                    <img src="assets/img/salice1.jpg" class="px-2" style="width: 100%;" alt="šalice">
+                </a>
+            </div>
+            <div class="col-6 col-lg-3">
+                <a routerLink="/category/11">
+                    <img src="assets/img/salice2.jpg" class="px-2" style="width: 100%;" alt="šalice">
+                </a>
+            </div>
             
         </div>
     </div>
