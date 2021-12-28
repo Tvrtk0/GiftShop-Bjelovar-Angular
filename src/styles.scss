@@ -1,6 +1,6 @@
 /* ------------------------ SCSS ------------------------ */
 /* main colors */
-$color-primary: #4d5bf9;
+$color-primary: #4d5bf9; 
 $color-secondary: #808adf;
 $color-dark-primary: #0a0a15;
 $color-dark-secondary: #1b1b30;
@@ -11,7 +11,8 @@ $theme-colors: (
     "primary": $color-primary,
     "secondary": $color-secondary,
     "dark": $color-dark-secondary,
-    "light": $color-light
+    "light": $color-light,
+    "success":  #50c84c
 );
 
 /* navbar */
