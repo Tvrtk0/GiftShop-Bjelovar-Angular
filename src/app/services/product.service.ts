@@ -17,6 +17,15 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
 
+  deleteProductCategory(id: number) {
+    const url = `${this.categoryUrl}/${id}`;
+    return this.httpClient.delete(url);
+  }
+
+  addProductCategory(category : ProductCategory ) {
+    return this.httpClient.post<ProductCategory>(this.categoryUrl, category);
+  }
+
   getProductListPaginate( thePage: number, 
                           thePageSize: number, 
                           theCategoryId: number): Observable<GetResponseProducts> {
