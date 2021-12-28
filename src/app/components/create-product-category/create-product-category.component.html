@@ -1,1 +1,11 @@
-<p>create-product-category works!</p>
+<div>
+    <h2>Dodaj kategoriju</h2>
+    <form [formGroup]="categoryForm" (submit)="onSubmit()">
+        <fieldset class="form-group">
+            <label for="category-name">Naziv kategorije: </label>
+            <input class="form-control mt-1" type="text" formControlName="name" placeholder="Category name">
+        </fieldset>
+
+        <input type="submit" value="Spremi" class="btn btn-success white my-3" [disabled]="!categoryForm.valid">
+    </form>
+</div>
