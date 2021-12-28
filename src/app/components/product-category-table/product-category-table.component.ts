@@ -25,9 +25,11 @@ export class ProductCategoryTableComponent implements OnInit {
     );
   }
 
-  deleteCategory(categoryId: number, categoryName: string) {
+  deleteCategory(categoryId: number, categoryName: string, index: number) {
     if (confirm("Delete: " + categoryName.toUpperCase())) {
       console.log("delete: " + categoryId);
+      this.productService.deleteProductCategory(categoryId).subscribe();
+      this.productCategories.splice(index, 1);
     }
   }
 }
