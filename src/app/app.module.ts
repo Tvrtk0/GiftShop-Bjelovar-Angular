@@ -91,7 +91,7 @@ const routes: Routes = [
     BrowserModule,
     NgbModule,
     HttpClientModule,
-    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy', scrollPositionRestoration: 'enabled' }),
     OktaAuthModule
   ],
   providers: [ProductService, { provide: OKTA_CONFIG, useValue: {oktaAuth} }],
