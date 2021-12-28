@@ -32,6 +32,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductTableComponent } from './components/product-table/product-table.component';
 import { ProductCategoryTableComponent } from './components/product-category-table/product-category-table.component';
 import { CreateProductCategoryComponent } from './components/create-product-category/create-product-category.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const oktaConfig = Object.assign({
   onAuthRequired: (oktaAuth, injector) => {
@@ -92,7 +93,8 @@ const routes: Routes = [
     NgbModule,
     HttpClientModule,
     RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy', scrollPositionRestoration: 'enabled' }),
-    OktaAuthModule
+    OktaAuthModule,
+    ReactiveFormsModule
   ],
   providers: [ProductService, { provide: OKTA_CONFIG, useValue: {oktaAuth} }],
   bootstrap: [AppComponent]
