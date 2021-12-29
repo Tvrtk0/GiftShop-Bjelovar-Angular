@@ -33,6 +33,7 @@ import { ProductTableComponent } from './components/product-table/product-table.
 import { ProductCategoryTableComponent } from './components/product-category-table/product-category-table.component';
 import { CreateProductCategoryComponent } from './components/create-product-category/create-product-category.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CreateProductComponent } from './components/create-product/create-product.component';
 
 const oktaConfig = Object.assign({
   onAuthRequired: (oktaAuth, injector) => {
@@ -52,6 +53,7 @@ const routes: Routes = [
     path: 'admin', component: AdminComponent, canActivate: [OktaAuthGuard],
     children : [
       { path: '', redirectTo: 'category', pathMatch: 'full'},
+      { path: 'product/add', component: CreateProductComponent, canActivateChild: [OktaAuthGuard] },
       { path: 'category/add', component: CreateProductCategoryComponent, canActivateChild: [OktaAuthGuard] },
       { path: 'category/:idCat/products', component: ProductTableComponent, canActivateChild: [OktaAuthGuard] },
       { path: 'category', component: ProductCategoryTableComponent, canActivateChild: [OktaAuthGuard] },
@@ -86,7 +88,8 @@ const routes: Routes = [
     NavbarComponent,
     ProductTableComponent,
     ProductCategoryTableComponent,
-    CreateProductCategoryComponent
+    CreateProductCategoryComponent,
+    CreateProductComponent
   ],
   imports: [
     BrowserModule,
