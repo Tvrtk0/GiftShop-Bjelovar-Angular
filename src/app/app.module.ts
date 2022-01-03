@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
@@ -34,6 +34,7 @@ import { ProductCategoryTableComponent } from './components/product-category-tab
 import { CreateProductCategoryComponent } from './components/create-product-category/create-product-category.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateProductComponent } from './components/create-product/create-product.component';
+import { UcWidgetModule } from 'ngx-uploadcare-widget';
 
 const oktaConfig = Object.assign({
   onAuthRequired: (oktaAuth, injector) => {
@@ -97,9 +98,11 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy', scrollPositionRestoration: 'enabled' }),
     OktaAuthModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UcWidgetModule
   ],
   providers: [ProductService, { provide: OKTA_CONFIG, useValue: {oktaAuth} }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }
