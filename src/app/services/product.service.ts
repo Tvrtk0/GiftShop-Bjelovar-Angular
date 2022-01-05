@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Product } from '../common/product';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -12,10 +12,36 @@ import { ProductCategory } from '../common/product-category';
 export class ProductService {
 
   private baseUrl = 'http://localhost:8080/api/products';
-
   private categoryUrl = 'http://localhost:8080/api/product-category';
+  private secretKey = '63c682d0d56c2fe6f352';
+  private publicKey = '604a57657e7111712369';
 
   constructor(private httpClient: HttpClient) { }
+
+  storeImage(uuid: string) {
+    const uploadcareUrl = `https://api.uploadcare.com/files/${uuid}/storage/`;
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Uploadcare.Simple ${this.publicKey}:${this.secretKey}`,
+        Accept: "application/vnd.uploadcare-v0.5+json"
+      })
+    }
+
+    return this.httpClient.post(uploadcareUrl, null, httpOptions);
+  }
+
+  addProduct(product: Product, categoryId: number) {
+
+    product.category = `${this.categoryUrl}/${categoryId}`;
+
+    return this.httpClient.post<Product>(this.baseUrl, product);
+  }
+
+  deleteProduct(id: number) {
+    const url = `${this.baseUrl}/${id}`;
+    return this.httpClient.delete(url);
+  }
 
   deleteProductCategory(id: number) {
     const url = `${this.categoryUrl}/${id}`;
