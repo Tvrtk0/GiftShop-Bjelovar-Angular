@@ -25,7 +25,6 @@ export class CreateProductCategoryComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.categoryForm.value.name);
     this.category.id = null;
     this.category.categoryName = this.categoryForm.value.name;
 
