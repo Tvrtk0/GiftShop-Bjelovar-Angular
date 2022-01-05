@@ -14,7 +14,7 @@
                 <th scope="col">Delete</th>
             </tr>
         </thead>
-        <tbody *ngFor="let product of products">
+        <tbody *ngFor="let product of products; let i = index">
             <tr>
                 <!-- <th scope="row">{{ product.id }}</th> -->
                 <td><a routerLink="/products/{{product.id}}">{{ product.name }}</a></td> 
@@ -27,7 +27,7 @@
                 <td><a href="#">Uredi</a></td>
                 <!-- <td><a href="#" class="text-danger">Obriši</a></td> -->
                 <td>
-                    <a class="delete-link" (click)="deleteProduct(product.id, product.name)">
+                    <a class="delete-link" (click)="deleteProduct(product.id, product.name, i)">
                         Obriši
                     </a>
                 </td>

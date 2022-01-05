@@ -48,9 +48,11 @@ export class ProductTableComponent implements OnInit {
     )
   }
 
-  deleteProduct(productId: number, productName: string) {
+  deleteProduct(productId: number, productName: string, index: number) {
     if (confirm("Delete - ''" + productName.toUpperCase() + "''")) {
       console.log("delete: " + productId);
+      this.productService.deleteProduct(productId).subscribe();
+      this.products.splice(index, 1);
     }
   }
 
