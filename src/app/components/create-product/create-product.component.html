@@ -33,13 +33,13 @@
             </label>
         </fieldset>
         
-        <!-- (on-progress)="onProgress($event)" -->
         <div>
             <ngx-uploadcare-widget
                 (on-upload-complete)="onUpload($event)"
                 images-only="true"
                 public-key="604a57657e7111712369"
-                preview-step="true">
+                preview-step="true"
+                crop="1:1">
             </ngx-uploadcare-widget>
         </div>
         
