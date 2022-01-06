@@ -56,7 +56,7 @@ export class ProductService {
                           thePageSize: number, 
                           theCategoryId: number): Observable<GetResponseProducts> {
 
-    const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`
+    const searchUrl = `${this.baseUrl}/search/findByCategoryIdOrderByDateCreatedDesc?id=${theCategoryId}`
                     + `&page=${thePage}&size=${thePageSize}`;
 
     return this.httpClient.get<GetResponseProducts>(searchUrl);
@@ -65,9 +65,18 @@ export class ProductService {
   // Maps the JSON data from Spring Data REST to Product array
   getProductList(theCategoryId: number): Observable<Product[]> {
 
-    const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`;
+    const searchUrl = `${this.baseUrl}/search/findByCategoryIdOrderByDateCreatedDesc?id=${theCategoryId}`;
 
     return this.getProducts(searchUrl);
+  }
+  
+  getAllProductsByDateCreated(thePage: number, 
+                              thePageSize: number): Observable<GetResponseProducts> {
+    
+    const url = `${this.baseUrl}/search/findAllByOrderByDateCreatedDesc?`
+                + `page=${thePage}&size=${thePageSize}`;;
+
+    return this.httpClient.get<GetResponseProducts>(url);
   }
 
   getProductCategories(): Observable<ProductCategory[]> {
