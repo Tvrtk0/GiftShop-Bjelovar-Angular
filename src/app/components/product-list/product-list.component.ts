@@ -43,6 +43,8 @@ export class ProductListComponent implements OnInit {
     else {
       this.handleListProducts();
     }
+
+    window.scrollTo(0, 0);
   }
 
 
@@ -51,27 +53,31 @@ export class ProductListComponent implements OnInit {
     // check if "id" parametar is available
     const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
 
-    // get "id" and convert it to nmbr
     if (hasCategoryId) {
+      // get "id" and convert it to nmbr
       this.currentCategoryId = +this.route.snapshot.paramMap.get('id');
+
+      // check if we have a different category than previous
+      if (this.previousCategoryId != this.currentCategoryId) {
+        this.pageNumber = 1;
+      }
+
+      this.previousCategoryId = this.currentCategoryId;
+
+
+      this.productService.getProductListPaginate(
+        this.pageNumber - 1,
+        this.pageSize,
+        this.currentCategoryId
+      ).subscribe(this.processResult());
+
     }
     else {
-      this.currentCategoryId = 1;
+      this.productService.getAllProductsByDateCreated(
+        this.pageNumber - 1,
+        this.pageSize,
+      ).subscribe(this.processResult());
     }
-
-    // check if we have a different category than previous
-    if (this.previousCategoryId != this.currentCategoryId) {
-      this.pageNumber = 1;
-    }
-
-    this.previousCategoryId = this.currentCategoryId;
-
-
-    this.productService.getProductListPaginate(
-      this.pageNumber - 1,
-      this.pageSize,
-      this.currentCategoryId
-    ).subscribe(this.processResult());
   }
 
   handleSearchProducts() {
