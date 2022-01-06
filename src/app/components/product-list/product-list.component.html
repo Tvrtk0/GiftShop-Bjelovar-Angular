@@ -59,5 +59,16 @@
                     </div>
                 </div>
         </section>
+        
+        <div id="pagination" *ngIf="totalElements > 3" class="mt-5 mx-2">
+            <ngb-pagination [(page)]="pageNumber"
+                            [pageSize]="pageSize"
+                            [collectionSize]="totalElements"
+                            [maxSize]="5"
+                            [boundaryLinks]="boundaryLinks"
+                            (pageChange)="listProducts()">
+
+            </ngb-pagination>
+        </div>
     </div>
 </div>
