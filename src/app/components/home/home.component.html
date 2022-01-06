@@ -37,17 +37,17 @@
 <!-- Search end -->
 
 <section class="py-5 mt-3">
-    <div class="container">
+    <div class="container px-5 px-sm-0">
         <h2>Novo u ponudi</h2>
-        <div class="row my-3 card-group row-cols-2 row-cols-lg-4 g-3">
+        <div class="row my-3 card-group row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
             <div class="col"  *ngFor="let product of products">
-                <div class="card text-center card-bg py-3">
+                <div class="card text-center card-bg py-3" style="height: 100%;">
                     <a routerLink="/products/{{ product.id }}">
-                        <img src="{{ product.imageUrl }}" class="card-img-center" style="width: 80%; align-self: center; padding-top:20px" alt="{{ product.name }}">
+                        <img src="{{ product.imageUrl }}" class="card-img-center img-hover" style="width: 80%; align-self: center; padding-top:20px" alt="{{ product.name }}">
                     </a>
                     <div class="card-body">
                         <div class="card-title">
-                            <a routerLink="/products/{{ product.id }}" class="link-light">{{ product.name }}</a>
+                            <a routerLink="/products/{{ product.id }}" class="light-link">{{ product.name }}</a>
                         </div>
                         <div class="card-text text-light">
                             {{ product.price }} kn
@@ -58,7 +58,7 @@
         </div>
     </div>
 </section>
-
+<!-- sekcija slidshow kategorija?? -->
 <section class="py-3 mb-5">
     <div class="container p-4">
         <h2>Sublimacija šalica po želji</h2>
@@ -72,14 +72,14 @@
                     Prikaži sve šalice
                 </button>
             </div>
-            <div class="col-6 col-lg-3">
+            <div class="col-12 col-sm-6 col-lg-3 px-4 px-sm-0">
                 <a routerLink="/category/11">
-                    <img src="assets/img/salice1.jpg" class="px-2" style="width: 100%;" alt="šalice">
+                    <img src="assets/img/salice1.jpg" class="px-2 img-hover" style="width: 100%;" alt="šalice">
                 </a>
             </div>
-            <div class="col-6 col-lg-3">
+            <div class="col-12 col-sm-6 col-lg-3 px-4 px-sm-0 pt-3 pt-sm-0">
                 <a routerLink="/category/11">
-                    <img src="assets/img/salice2.jpg" class="px-2" style="width: 100%;" alt="šalice">
+                    <img src="assets/img/salice2.jpg" class="px-2 img-hover" style="width: 100%;" alt="šalice">
                 </a>
             </div>
             
