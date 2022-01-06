@@ -63,6 +63,13 @@ a:hover {
     color: $color-secondary;
 }
 
+.light-link {
+    color: $color-light;
+}
+.light-link:hover {
+    color: $color-primary;
+}
+
 footer {
     z-index: 10;
     position: relative;
@@ -168,11 +175,11 @@ footer ul li {
     //border-left: 5px solid #808adf;
 //}
 
-#card-section img {
+.img-hover {
     transition: transform .2s;
 }
 
-#card-section img:hover {
+.img-hover:hover {
     transform: scale(1.05);
 }
 
