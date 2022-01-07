@@ -48,12 +48,18 @@ export class ProductTableComponent implements OnInit {
     )
   }
 
-  deleteProduct(productId: number, productName: string, index: number) {
-    if (confirm("Delete - ''" + productName.toUpperCase() + "''")) {
-      console.log("delete: " + productId);
+  deleteProduct(product: Product, index: number) {
+    const productId = +product.id;
+    let uuid = product.imageUrl;
+    uuid = uuid.slice(21);
+    uuid = uuid.substring(0, uuid.indexOf('/'));
+
+    if (confirm("Delete - ''" + product.name.toUpperCase() + "''")) {
+      console.log("deleted product: " + productId);
+      console.log("deleted image: " + uuid);
+      this.productService.deleteImage(uuid).subscribe();
       this.productService.deleteProduct(productId).subscribe();
       this.products.splice(index, 1);
     }
   }
-
 }
