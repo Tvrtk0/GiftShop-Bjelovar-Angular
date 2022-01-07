@@ -18,6 +18,25 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
 
+  updateProductCategory(category: ProductCategory) {
+    const url = `${this.categoryUrl}/${category.id}`;
+
+    return this.httpClient.put<ProductCategory>(url, category);
+  }
+
+  deleteImage(uuid: string) {
+    const uploadcareUrl = `https://api.uploadcare.com/files/${uuid}/storage/`;
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Uploadcare.Simple ${this.publicKey}:${this.secretKey}`,
+        Accept: "application/vnd.uploadcare-v0.5+json"
+      })
+    }
+
+    return this.httpClient.delete(uploadcareUrl, httpOptions);
+  }
+
   storeImage(uuid: string) {
     const uploadcareUrl = `https://api.uploadcare.com/files/${uuid}/storage/`;
 
