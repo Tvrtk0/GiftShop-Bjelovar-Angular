@@ -5,6 +5,7 @@
     bottom: 0;
     width: 300px;
     background-color: #121221;
+    overflow-y: auto;
 }
 
 #productMenu ul {
@@ -14,6 +15,7 @@
     width: 100%;
     padding-left: 2em;
     padding-top: 2em;
+    padding-bottom: 5em;;
 }
 
 #productMenu ul label {
