@@ -1,6 +1,6 @@
-<div>
+<div class="row">
     <h2>Dodaj kategoriju</h2>
-    <form [formGroup]="categoryForm" (submit)="onSubmit()">
+    <form [formGroup]="categoryForm" (submit)="onSubmit()" class="col-12 col-lg-8 col-xl-6">
         <fieldset class="form-group">
             <label for="category-name">Naziv kategorije: </label>
             <input class="form-control mt-1" type="text" formControlName="name" placeholder="Category name">

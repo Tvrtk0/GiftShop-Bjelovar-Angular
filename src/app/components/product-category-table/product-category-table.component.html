@@ -21,7 +21,7 @@
                     <td><a routerLink="{{ tempProductCategory.id }}/products">
                         {{ tempProductCategory.categoryName }}
                     </a></td> 
-                    <td><a href="#">Uredi</a></td>
+                    <td><a routerLink="{{ tempProductCategory.id }}/edit">Uredi</a></td>
                     <td>
                         <a class="delete-link" (click)="deleteCategory(tempProductCategory.id, tempProductCategory.categoryName, i)">
                             Obriši
