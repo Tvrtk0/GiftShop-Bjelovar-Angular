@@ -24,8 +24,7 @@
                 <td *ngIf="!product.archive">
                     <i class="fas fa-times"></i>
                 </td>
-                <td><a href="#">Uredi</a></td>
-                <!-- <td><a href="#" class="text-danger">Obriši</a></td> -->
+                <td><a routerLink="/admin/category/{{currentCategory.id}}/edit/{{product.id}}">Uredi</a></td>
                 <td>
                     <a class="delete-link" (click)="deleteProduct(product, i)">
                         Obriši
