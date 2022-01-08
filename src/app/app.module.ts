@@ -36,6 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
 import { EditProductCategoryComponent } from './components/edit-product-category/edit-product-category.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 const oktaConfig = Object.assign({
   onAuthRequired: (oktaAuth, injector) => {
@@ -55,6 +56,7 @@ const routes: Routes = [
     path: 'admin', component: AdminComponent, canActivate: [OktaAuthGuard],
     children : [
       { path: '', redirectTo: 'category', pathMatch: 'full'},
+      { path: 'category/:idCat/edit/:id', component: EditProductComponent, canActivateChild: [OktaAuthGuard] },
       { path: 'category/:idCat/edit', component: EditProductCategoryComponent, canActivateChild: [OktaAuthGuard] },
       { path: 'category/:idCat/products', component: ProductTableComponent, canActivateChild: [OktaAuthGuard] },
       { path: 'product/add', component: CreateProductComponent, canActivateChild: [OktaAuthGuard] },
@@ -93,7 +95,8 @@ const routes: Routes = [
     ProductCategoryTableComponent,
     CreateProductCategoryComponent,
     CreateProductComponent,
-    EditProductCategoryComponent
+    EditProductCategoryComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

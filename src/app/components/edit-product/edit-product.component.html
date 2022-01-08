@@ -1,0 +1,53 @@
+<div style="max-width: 1000px;">
+    <h2>Dodaj proizvod</h2>
+    <form [formGroup]="productForm" (submit)="onSubmit()">
+        <div class="row my-3">
+            <fieldset class="form-group col-12 col-sm-6 mb-3 mb-sm-0" >
+                <label>Kategorija: </label>
+                <select class="form-select mt-1" formControlName="productCategory">
+                    <option value="" disabled hidden>Odaberi . . .</option>
+                    <option *ngFor="let category of categories;" value="{{category.id}}">{{category.categoryName}}</option>
+                </select>
+            </fieldset>
+            <fieldset class="form-group col-12 col-sm-6" >
+                <label>Cijena: </label>
+                <input class="form-control mt-1" type="number" formControlName="price" placeholder="Product Price (KN)">
+            </fieldset>
+        </div>
+        
+        <fieldset class="form mb-3" >
+            <label>Naziv proizvoda: </label>
+            <input class="form-control mt-1" type="text" formControlName="name" placeholder="Product name">
+        </fieldset>
+
+        <!-- dodat wysiwyg editor -->
+        <fieldset class="form-group mb-3" >
+            <label>Opis proizvoda: </label>
+            <textarea class="form-control mt-1" rows="10" formControlName="description" placeholder="Description . . ."></textarea>
+        </fieldset>
+
+        <fieldset class="form-check form-switch mb-3" >
+            <input class="form-check-input" type="checkbox" formControlName="archive" value="false" id="archive">
+            <label class="form-check-label" for="archive">
+                Arhiva
+            </label>
+        </fieldset>
+        
+        <div>
+            <ngx-uploadcare-widget
+                (on-upload-complete)="onUpload($event)"
+                images-only="true"
+                public-key="604a57657e7111712369"
+                preview-step="true"
+                crop="1:1">
+            </ngx-uploadcare-widget>
+        </div>
+        
+        <div>
+            <span class="text-danger" *ngIf="message">{{message}}</span> <br *ngIf="message">
+            <img [src]="imgUrl" height="200" *ngIf="imgUrl" class="pt-3">
+        </div>
+        
+        <input type="submit" value="Spremi" class="btn btn-success white my-3" [disabled]="!productForm.valid || imgUrl == null">        
+    </form>
+</div>
