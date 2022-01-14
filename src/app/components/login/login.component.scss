@@ -1,0 +1,14 @@
+
+#login {
+    margin: 5vh auto; 
+    height: 55vh; 
+    width: 80vw; 
+    text-align: center; 
+    padding-top: 50px;
+}
+
+@media only screen and (min-width: 801px) {
+    #login {
+        width: 40vw; 
+    }
+}
