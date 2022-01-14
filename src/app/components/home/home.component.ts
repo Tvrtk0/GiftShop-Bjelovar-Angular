@@ -24,9 +24,10 @@ export class HomeComponent implements OnInit {
   }
 
   listProducts() {
-    this.productService.getProductsByDate().subscribe(
+    this.productService.get10ProductsByDate().subscribe(
       data => {
-        this.products = data;
+        this.products = data.filter(product => product.archive === false)
+                            .slice(0, 4);
       }
     )
   }

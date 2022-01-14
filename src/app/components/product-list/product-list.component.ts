@@ -102,7 +102,9 @@ export class ProductListComponent implements OnInit {
   // class properties = data from REST JSON
   processResult() {
     return data => {
-      this.products = data._embedded.products;
+      this.products = data._embedded.products.filter(
+        product => product.archive === false
+      );
       this.pageNumber = data.page.number + 1;
       this.pageSize = data.page.size;
       this.totalElements = data.page.totalElements;

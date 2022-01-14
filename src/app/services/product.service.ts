@@ -128,9 +128,9 @@ export class ProductService {
     );
   }
 
-  getProductsByDate(): Observable<Product[]> {
+  get10ProductsByDate(): Observable<Product[]> {
 
-    const searchUrl = `${this.baseUrl}/search/findTop4ByOrderByDateCreatedDesc`;
+    const searchUrl = `${this.baseUrl}/search/findTop10ByOrderByDateCreatedDesc`;
 
     return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
       map(response => response._embedded.products)
