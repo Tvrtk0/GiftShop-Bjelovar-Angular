@@ -13,12 +13,15 @@ import { ProductService } from 'src/app/services/product.service';
 export class EditProductComponent implements OnInit {
 
   product : Product = new Product();
+  productDateCreated: any = null;
   categories : ProductCategory[] = [];
   productForm : FormGroup;
   selectedFile = null;
   imgUrl: any = null;
+  oldImgUrl: any = null;
   imagePath: any;
   message: string;
+  uploadMessage: string;
   currentUuid: any = null;
   currentProductId: number = null;
   currentCategoryId: number = null;
@@ -59,25 +62,37 @@ export class EditProductComponent implements OnInit {
           this.productForm.controls['description'].setValue(`${data.description}`);
           this.productForm.controls['archive'].setValue(data.archive);
           this.imgUrl = data.imageUrl;
+          if (this.oldImgUrl === null) {
+            this.oldImgUrl = data.imageUrl;
+          }
+          this.productDateCreated = data.dateCreated;
         });
     }
   }
 
   onSubmit() {
     let formObject = this.productForm.value;
-    this.product.id = null;
+    this.product.id = `${this.currentProductId}`;
     this.product.name = formObject.name;
     this.product.price = formObject.price;
     this.product.description = formObject.description;
     this.product.archive = formObject.archive;
     this.product.imageUrl = this.imgUrl;
+    this.product.dateCreated = this.productDateCreated;
 
-    // Store current image object -> default is delete after 24h
-    //======= if nova slika uploadana
-    //this.productService.storeImage(this.currentUuid).subscribe();
+    console.log(this.product.imageUrl);
+    console.log(this.oldImgUrl);
+    
+    if (this.product.imageUrl != this.oldImgUrl) {
+      let uuid = this.product.imageUrl;
+      uuid = uuid.slice(21);
+      uuid = uuid.substring(0, uuid.indexOf('/'));
+      this.productService.deleteImage(`${uuid}`).subscribe();
+      this.productService.storeImage(this.currentUuid).subscribe();
+    }
 
-    //this.productService.addProduct(this.product, formObject.productCategory).subscribe();
-    //======= editProduct
+    this.productService.updateProduct(this.product, this.currentCategoryId).subscribe();
+    this.uploadMessage = "Uspješno spremljeno.";
   }
 
   onUpload(info: any) {

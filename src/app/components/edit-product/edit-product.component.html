@@ -48,6 +48,9 @@
             <img [src]="imgUrl" height="200" *ngIf="imgUrl" class="pt-3">
         </div>
         
-        <input type="submit" value="Spremi" class="btn btn-success white my-3" [disabled]="!productForm.valid || imgUrl == null">        
+        <input type="submit" value="Spremi" class="btn btn-success white my-3" [disabled]="!productForm.valid || imgUrl == null">   
+        <div *ngIf="uploadMessage">
+            <span class="text-success">{{uploadMessage}}</span>
+        </div>     
     </form>
 </div>
