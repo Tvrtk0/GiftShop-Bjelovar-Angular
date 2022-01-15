@@ -17,7 +17,12 @@
         <tbody *ngFor="let product of products; let i = index">
             <tr>
                 <!-- <th scope="row">{{ product.id }}</th> -->
-                <td><a routerLink="/products/{{product.id}}">{{ product.name }}</a></td> 
+                <td class="product-hover-img">
+                    <a routerLink="/admin/category/{{currentCategory.id}}/edit/{{product.id}}">
+                        {{ product.name }} 
+                        <span><img [src]="product.imageUrl" height="300" *ngIf="product.imageUrl"></span> 
+                    </a>
+                </td> 
                 <td *ngIf="product.archive">
                     <i class="fas fa-check"></i> 
                 </td>
