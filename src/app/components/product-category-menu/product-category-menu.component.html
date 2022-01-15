@@ -8,3 +8,17 @@
         </li>
     </ul>
 </nav>
+
+<form [formGroup]="productForm" id="productMenuDropdown">
+    <div class="row my-3">
+        <fieldset class="form-group col-12 col-sm-6 mb-3 mb-sm-0" >
+            <label>Kategorija: </label>
+            <select class="form-select mt-1 bg-dark text-light" formControlName="productCategory" (change)="navigateTo($event.target.value)">
+                <option value="" disabled hidden>Odaberi . . .</option>
+                <option *ngFor="let category of productCategories;" value="{{category.id}}">
+                    {{category.categoryName}}
+                </option>
+            </select>
+        </fieldset>
+    </div>
+</form>
