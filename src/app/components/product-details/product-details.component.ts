@@ -11,6 +11,8 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductDetailsComponent implements OnInit {
 
   product: Product = new Product();
+  productCategoryId: number = null;
+  recommendedProducts: Product[] = [];
 
   constructor(
     private productService: ProductService,
@@ -21,6 +23,7 @@ export class ProductDetailsComponent implements OnInit {
     this.route.paramMap.subscribe(() => {
       this.handleProductDetails();
     })
+    
   }
 
   handleProductDetails() {
@@ -31,6 +34,17 @@ export class ProductDetailsComponent implements OnInit {
     this.productService.getProduct(theProductId).subscribe(
       data => {
         this.product = data;
+        this.productService.getCategoryByProductId(+data.id).subscribe(
+          data => {
+            console.log(data.id);
+            this.productCategoryId = +data.id;
+            this.productService.getProductList(data.id).subscribe(
+              data => {
+                this.recommendedProducts = data.filter(p => p.id != this.product.id && p.archive === false).slice(0, 3);
+              }
+            );
+          }
+        );
       }
     )
   }

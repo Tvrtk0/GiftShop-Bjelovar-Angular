@@ -4,22 +4,53 @@
 <!-- Page content -->
 <div class="content">
     <section id="product-details">
-        <div class="row">
-            <div class="col-lg-12 col-xl-6">
-                <a routerLink="/products/{{ product.id }}">
-                    <img src="{{ product.imageUrl }}" style="width: 100%; max-width: 600px; align-self: center;" alt="{{ product.name }}">
-                </a>
+        <div class="container-fluid">
+            <div class="row" *ngIf="product.id">
+                <div *ngIf="product.archive === true">
+                    <div class="alert alert-warning mb-4 col-12 col-lg-6" role="alert">             
+                        Proizvod je u arhivi.
+                    </div>
+                </div>
+                <div class="col-lg-12 col-xl-6 mt-3 mt-xl-0 order-xl-2">
+                    <div>
+                        <h2>{{ product.name }}</h2>
+                        <h4>{{ product.price }} kn</h4>
+                    </div>
+                    <hr>
+                    <div>
+                        <p>{{ product.description }}</p>
+                    </div>
+                    <a routerLink="/products" class="btn btn-primary my-3">Povratak na listu proizvoda</a>
+                </div>
+                <div class="col-lg-12 col-xl-6 text-center order-xl-1">
+                    <a routerLink="/products/{{ product.id }}">
+                        <img src="{{ product.imageUrl }}" style="width: 100%; max-width: 600px;" alt="{{ product.name }}">
+                    </a>
+                </div>
             </div>
-            <div class="col-lg-12 col-xl-6">
-                <div>
-                    <h2>{{ product.name }}</h2>
-                    <h4>{{ product.price }} kn</h4>
+            <div *ngIf="!product.id">
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <div class="alert alert-warning" role="alert">             
+                            Traženi proizvod ne postoji.
+                        </div>
+                    </div>
                 </div>
-                <hr>
-                <div>
-                    <p>{{ product.description }}</p>
+            </div>
+        </div>
+        <div class="container">
+            <div *ngIf="recommendedProducts[0]">
+                <div class="row mt-5">
+                    <h3>Slični proizvodi</h3>
+                    <div class="col-12 col-sm-6 col-lg-4" *ngFor="let product of recommendedProducts">
+                        <div class="text-center">
+                            <a routerLink="/products/{{product.id}}" class="mb-3">
+                                <img src="{{product.imageUrl}}" style="width: 100%; max-width: 600px;" alt="{{ product.name }}">
+                            </a>
+                            <a routerLink="/products/{{product.id}}" class="light-link">{{product.name}}</a>
+                        </div>
+                    </div>
                 </div>
-                <a routerLink="/products" class="btn btn-primary mt-3">Povratak na listu proizvoda</a>
             </div>
         </div>
     </section>
