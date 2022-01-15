@@ -147,9 +147,16 @@ export class ProductService {
 
   getProductCategory(theCategoryId: number): Observable<ProductCategory> {
 
-    const productCateroryUrl = `${this.categoryUrl}/${theCategoryId}`;
+    const productCategoryUrl = `${this.categoryUrl}/${theCategoryId}`;
 
-    return this.httpClient.get<ProductCategory>(productCateroryUrl);
+    return this.httpClient.get<ProductCategory>(productCategoryUrl);
+  }
+
+  getCategoryByProductId(theId: number): Observable<ProductCategory> {
+    
+    const productCategoryUrl = `${this.baseUrl}/${theId}/category`;
+
+    return this.httpClient.get<ProductCategory>(productCategoryUrl);
   }
 
 }
