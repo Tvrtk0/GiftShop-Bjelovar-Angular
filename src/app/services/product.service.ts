@@ -50,6 +50,15 @@ export class ProductService {
     return this.httpClient.post(uploadcareUrl, null, httpOptions);
   }
 
+  updateProduct(product: Product, categoryId: number) {
+
+    product.category = `${this.categoryUrl}/${categoryId}`;
+
+    const url = `${this.baseUrl}/${product.id}`;
+
+    return this.httpClient.put<Product>(url, product);
+  }
+
   addProduct(product: Product, categoryId: number) {
 
     product.category = `${this.categoryUrl}/${categoryId}`;
