@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/common/product';
 import { ProductCategory } from 'src/app/common/product-category';
 import { ProductService } from 'src/app/services/product.service';
+import uploadcare from 'uploadcare-widget';
 
 @Component({
   selector: 'app-edit-product',
@@ -25,6 +26,7 @@ export class EditProductComponent implements OnInit {
   currentUuid: any = null;
   currentProductId: number = null;
   currentCategoryId: number = null;
+  widgets = uploadcare.initialize('#my-form');
 
   constructor(private formBuilder: FormBuilder,
               private productService: ProductService,
@@ -84,11 +86,12 @@ export class EditProductComponent implements OnInit {
     console.log(this.oldImgUrl);
     
     if (this.product.imageUrl != this.oldImgUrl) {
-      let uuid = this.product.imageUrl;
+      let uuid = this.oldImgUrl;
       uuid = uuid.slice(21);
       uuid = uuid.substring(0, uuid.indexOf('/'));
-      this.productService.deleteImage(`${uuid}`).subscribe();
+      console.log(uuid);
       this.productService.storeImage(this.currentUuid).subscribe();
+      this.productService.deleteImage(uuid).subscribe();
     }
 
     this.productService.updateProduct(this.product, this.currentCategoryId).subscribe();
