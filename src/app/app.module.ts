@@ -37,6 +37,7 @@ import { CreateProductComponent } from './components/create-product/create-produ
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
 import { EditProductCategoryComponent } from './components/edit-product-category/edit-product-category.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { InfoModelComponent } from './components/info-model/info-model.component';
 
 const oktaConfig = Object.assign({
   onAuthRequired: (oktaAuth, injector) => {
@@ -96,7 +97,8 @@ const routes: Routes = [
     CreateProductCategoryComponent,
     CreateProductComponent,
     EditProductCategoryComponent,
-    EditProductComponent
+    EditProductComponent,
+    InfoModelComponent
   ],
   imports: [
     BrowserModule,
