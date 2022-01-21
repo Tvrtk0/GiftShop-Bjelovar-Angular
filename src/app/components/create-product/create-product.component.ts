@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Product } from 'src/app/common/product';
 import { ProductCategory } from 'src/app/common/product-category';
 import { ProductService } from 'src/app/services/product.service';
-import uploadcare from 'uploadcare-widget'
+import uploadcare from 'uploadcare-widget';
 
 @Component({
   selector: 'app-create-product',
@@ -19,6 +19,7 @@ export class CreateProductComponent implements OnInit {
   imgUrl: any = null;
   imagePath: any;
   message: string;
+  uploadMessage: string;
   currentUuid: any = null;
   widgets = uploadcare.initialize('#my-form');
 
@@ -54,6 +55,7 @@ export class CreateProductComponent implements OnInit {
     this.productService.storeImage(this.currentUuid).subscribe();
 
     this.productService.addProduct(this.product, formObject.productCategory).subscribe();
+    this.uploadMessage = "Proizvod uspješno spremljen.";
   }
 
   onUpload(info: any) {
