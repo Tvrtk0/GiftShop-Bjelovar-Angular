@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/common/product';
+import { ProductCategory } from 'src/app/common/product-category';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductDetailsComponent implements OnInit {
 
   product: Product = new Product();
+  category : ProductCategory = new ProductCategory();
   productCategoryId: number = null;
   recommendedProducts: Product[] = [];
 
@@ -23,13 +25,18 @@ export class ProductDetailsComponent implements OnInit {
     this.route.paramMap.subscribe(() => {
       this.handleProductDetails();
     })
-    
   }
 
   handleProductDetails() {
     
     // get id param and convert it to a number
     const theProductId: number = +this.route.snapshot.paramMap.get('id');
+    
+    this.productService.getCategoryByProductId(theProductId).subscribe(
+      res => {
+        this.category = res;
+      }
+    )
 
     this.productService.getProduct(theProductId).subscribe(
       data => {

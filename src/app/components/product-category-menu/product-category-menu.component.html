@@ -10,7 +10,7 @@
 </nav>
 
 <form [formGroup]="productForm" id="productMenuDropdown">
-    <div class="row my-3">
+    <div class="row my-3 px-1">
         <fieldset class="form-group col-12 col-sm-6 mb-3 mb-sm-0" >
             <label>Kategorija: </label>
             <select class="form-select mt-1 bg-dark text-light" formControlName="productCategory" (change)="navigateTo($event.target.value)">

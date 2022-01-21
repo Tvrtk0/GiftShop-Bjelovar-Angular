@@ -1,14 +1,24 @@
 
 #login {
     margin: 5vh auto; 
-    height: 55vh; 
+    height: 70vh; 
     width: 80vw; 
+    max-width: 500px;
+    max-height: 550px;
     text-align: center; 
     padding-top: 50px;
+    border-radius: 20px;
 }
 
 @media only screen and (min-width: 801px) {
     #login {
         width: 40vw; 
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #login {
+        width: 100%; 
+        border-radius: 0;
     }
 }

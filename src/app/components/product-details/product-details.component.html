@@ -4,28 +4,34 @@
 <!-- Page content -->
 <div class="content">
     <section id="product-details">
-        <div class="container-fluid">
-            <div class="row" *ngIf="product.id">
+        <div class="container mt-0 mt-xl-3">
+            <div *ngIf="product.id">
                 <div *ngIf="product.archive === true">
                     <div class="alert alert-warning mb-4 col-12 col-lg-6" role="alert">             
                         Proizvod je u arhivi.
                     </div>
                 </div>
-                <div class="col-lg-12 col-xl-6 mt-3 mt-xl-0 order-xl-2">
-                    <div>
-                        <h2>{{ product.name }}</h2>
-                        <h4>{{ product.price }} kn</h4>
+                <div class="row mb-3">
+                    <div class="col">
+                        <a routerLink="/products" class="light-link">Proizvodi</a> /
+                        <a routerLink="/category/{{category.id}}" class="light-link">{{category.categoryName}}</a> 
                     </div>
-                    <hr>
-                    <div>
-                        <p>{{ product.description }}</p>
-                    </div>
-                    <a routerLink="/products" class="btn btn-primary my-3">Povratak na listu proizvoda</a>
                 </div>
-                <div class="col-lg-12 col-xl-6 text-center order-xl-1">
-                    <a routerLink="/products/{{ product.id }}">
-                        <img src="{{ product.imageUrl }}" style="width: 100%; max-width: 600px;" alt="{{ product.name }}">
-                    </a>
+                <div class="row">
+                    <div class="col-md-5 col-md-12 col-lg-6 mt-3 mt-xl-0 order-lg-2 px-0 px-sm-3 px-xl-3">
+                        <div>
+                            <h2>{{ product.name }}</h2>
+                            <h4>{{ product.price }} kn</h4>
+                        </div>
+                        <hr>
+                        <div>
+                            <p>{{ product.description }}</p>
+                        </div>
+                        <!-- <a routerLink="/products" class="btn btn-primary mb-5">Povratak na listu proizvoda</a> -->
+                    </div>
+                    <div class="col-md-5 col-md-12 col-lg-6 text-center order-lg-1">
+                        <img src="{{ product.imageUrl }}" style="width: 100%;" alt="{{ product.name }}">
+                    </div>
                 </div>
             </div>
             <div *ngIf="!product.id">
@@ -42,12 +48,22 @@
             <div *ngIf="recommendedProducts[0]">
                 <div class="row mt-5">
                     <h3>Slični proizvodi</h3>
-                    <div class="col-12 col-sm-6 col-lg-4" *ngFor="let product of recommendedProducts">
-                        <div class="text-center">
-                            <a routerLink="/products/{{product.id}}" class="mb-3">
-                                <img src="{{product.imageUrl}}" style="width: 100%; max-width: 600px;" alt="{{ product.name }}">
-                            </a>
-                            <a routerLink="/products/{{product.id}}" class="light-link">{{product.name}}</a>
+                    <div class="col-12 col-sm-6 col-lg-4 mb-3" *ngFor="let product of recommendedProducts">
+                        <div class="card pt-3 h-100 text-center card-bg">
+                            <div class="mt-3 mx-xl-3 px-4 px-xl-3">
+                                <a routerLink="/products/{{product.id}}">
+                                    <img src="{{product.imageUrl}}" class="img-hover" style="width: 100%;" alt="{{ product.name }}">
+                                    <!-- <a routerLink="/products/{{product.id}}" class="light-link pt-3">{{product.name}}</a> -->
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <a routerLink="/products/{{ product.id }}" class="light-link">{{ product.name }}</a>
+                                </div>
+                                <div class="card-text text-light">
+                                    {{ product.price }} kn
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

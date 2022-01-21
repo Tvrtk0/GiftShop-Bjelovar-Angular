@@ -75,6 +75,27 @@ h5 {font-size: 1.25rem;}
 
 small, .text_small {font-size: 0.8rem;}
 
+
+@media screen and (max-width: 991px) {
+    h1, h2, h3, h4, h5 {
+        margin: 0rem 0 0.9rem;
+    }
+
+    h1 {font-size: 2.441rem;}
+
+    h2 {font-size: 1.953rem;}
+
+    h3 {font-size: 1.563rem;}
+
+    h4 {font-size: 1.25rem;}
+
+    h5 {font-size: 1.15rem;}
+}
+
+hr {
+    color: $color-light;
+}
+
 main.main {
     padding-top: 70px;
 }
@@ -115,6 +136,7 @@ footer ul li {
 }
 
 .footer-link:hover {
+    cursor: pointer;
     color: $color-primary;
     text-decoration: underline;
 }
@@ -219,7 +241,7 @@ footer ul li {
     }
 }
 
-@media screen and (max-width: 850px) { //767px
+@media screen and (max-width: 991px) { //767px
     .content {
         margin: 0;
         padding: 20px 40px;
@@ -227,8 +249,6 @@ footer ul li {
 }
 
 #product-details {
-    padding: 30px 0;
-    border-radius: 10px;
     min-height: 95vh;
     color: #fff;
 }
