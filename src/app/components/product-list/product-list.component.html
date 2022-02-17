@@ -11,16 +11,19 @@
                         <app-search></app-search>
                     </div>
                 </div>
-                <div class="col-xl-8 col-lg-6 col-sm-12 pt-3 pl-3 pt-lg-0 ">
-                    <div id="pagination">
-                        <ngb-pagination [(page)]="pageNumber"
-                                        [pageSize]="pageSize"
-                                        [collectionSize]="totalElements"
-                                        [maxSize]="5"
-                                        [boundaryLinks]="boundaryLinks"
-                                        (pageChange)="listProducts()">
-            
-                        </ngb-pagination>
+                <div class="col-xl-8 col-lg-6 col-sm-12 pt-3 pl-3 pt-lg-0">
+                    <div class="w-100">
+                        <div id="pagination">
+                            <ngb-pagination [(page)]="pageNumber"
+                                            [pageSize]="pageSize"
+                                            [collectionSize]="totalElements"
+                                            [maxSize]="3"
+                                            [boundaryLinks]="boundaryLinks"
+                                            (pageChange)="listProducts()"
+                                            class="d-flex justify-content-center justify-content-lg-start">
+                
+                            </ngb-pagination>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -64,9 +67,10 @@
             <ngb-pagination [(page)]="pageNumber"
                             [pageSize]="pageSize"
                             [collectionSize]="totalElements"
-                            [maxSize]="5"
+                            [maxSize]="3"
                             [boundaryLinks]="boundaryLinks"
-                            (pageChange)="listProducts()">
+                            (pageChange)="listProducts()"
+                            class="d-flex justify-content-center">
 
             </ngb-pagination>
         </div>

@@ -114,10 +114,11 @@ export class ProductListComponent implements OnInit {
 
   updateNumberOfPages() {
     this.numberOfPages = Math.round(this.totalElements / this.pageSize);
-      if (this.numberOfPages > 3) {
-        this.boundaryLinks = true;
-      } 
-      else this.boundaryLinks = false;
-      console.log(`number of pages: ${this.numberOfPages}`);
+      // DODAJ boundaryLinks za vise od 3 stranice
+      // if (this.numberOfPages > 3) {
+      //   this.boundaryLinks = true;
+      // } 
+      // else this.boundaryLinks = false;
+      // console.log(`number of pages: ${this.numberOfPages}`);
   }
 }
