@@ -50,7 +50,7 @@
                             <a routerLink="/products/{{ product.id }}" class="light-link">{{ product.name }}</a>
                         </div>
                         <div class="card-text text-light">
-                            {{ product.price }} kn
+                            {{ product.price | number : '.2-2' }} kn
                         </div>
                     </div>
                 </div>

@@ -18,19 +18,19 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-5 col-md-12 col-lg-6 mt-3 mt-xl-0 order-lg-2 px-0 px-sm-3 px-xl-3">
+                    <div class="col-md-5 col-md-12 col-lg-6 text-center">
+                        <img src="{{ product.imageUrl }}" class="product-img" alt="{{ product.name }}">
+                    </div>
+                    <div class="col-md-5 col-md-12 col-lg-6 mt-3 mt-xl-0 px-0 px-sm-3 px-xl-3">
                         <div>
                             <h2>{{ product.name }}</h2>
-                            <h4>{{ product.price }} kn</h4>
+                            <h4>{{ product.price | number : '.2-2' }} kn</h4>
                         </div>
                         <hr>
                         <div>
-                            <p>{{ product.description }}</p>
+                            <p style="white-space: pre-line;">{{ product.description }}</p>
                         </div>
                         <!-- <a routerLink="/products" class="btn btn-primary mb-5">Povratak na listu proizvoda</a> -->
-                    </div>
-                    <div class="col-md-5 col-md-12 col-lg-6 text-center order-lg-1">
-                        <img src="{{ product.imageUrl }}" style="width: 100%;" alt="{{ product.name }}">
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@
                                     <a routerLink="/products/{{ product.id }}" class="light-link">{{ product.name }}</a>
                                 </div>
                                 <div class="card-text text-light">
-                                    {{ product.price }} kn
+                                    {{ product.price | number : '.2-2' }} kn
                                 </div>
                             </div>
                         </div>
