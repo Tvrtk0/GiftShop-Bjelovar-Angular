@@ -11,8 +11,9 @@ import { ProductCategory } from '../common/product-category';
 
 export class ProductService {
 
-  private baseUrl = 'http://localhost:8080/api/products';
-  private categoryUrl = 'http://localhost:8080/api/product-category';
+  private awsUrl = 'http://giftshopbjelovar.eu-central-1.elasticbeanstalk.com';
+  private baseUrl = `${this.awsUrl}/api/products`;
+  private categoryUrl = `${this.awsUrl}/api/product-category`;
   private secretKey = '63c682d0d56c2fe6f352';
   private publicKey = '604a57657e7111712369';
 
