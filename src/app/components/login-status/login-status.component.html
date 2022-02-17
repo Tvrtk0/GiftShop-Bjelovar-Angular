@@ -1,5 +1,5 @@
 <li *ngIf="!isAuthenticated" class="nav-item px-2">
-    <a class="nav-link" routerLinkActive="active" routerLink="/login">
+    <a class="nav-link" routerLinkActive="active" routerLink="/login" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
         <!-- Login -->
         <span class="icon">
             <i class="fas fa-user"></i> <!-- fa-user-cog -->
@@ -13,7 +13,7 @@
     </a>
     <ul class="dropdown-menu navbar-dark bg-dark" aria-labelledby="navbarDropdownMenuLink">
         <li>
-            <a class="nav-link" routerLinkActive="active" routerLink="/admin">Admin Dashboard</a>
+            <a class="nav-link" routerLinkActive="active" routerLink="/admin" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Admin Dashboard</a>
         </li>
         <li>
             <a class="nav-link" routerLinkActive="active" (click)="logout()" href="#">Logout</a>
