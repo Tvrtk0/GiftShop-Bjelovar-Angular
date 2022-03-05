@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/common/product';
 import { ProductService } from 'src/app/services/product.service';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-product-list',
@@ -25,12 +26,15 @@ export class ProductListComponent implements OnInit {
   previousKeyword: string = null;
 
   constructor(private productService: ProductService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private title: Title,
+              private meta: Meta) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
       this.listProducts();
     });
+    this.metaTags();
   }
 
   
@@ -120,5 +124,10 @@ export class ProductListComponent implements OnInit {
       // } 
       // else this.boundaryLinks = false;
       // console.log(`number of pages: ${this.numberOfPages}`);
+  }
+
+  metaTags() {
+    this.title.setTitle(`Gift Shop Bjelovar - DadoExpres`);
+    this.meta.updateTag({ name: 'robots', content: 'noindex, nofollow'});
   }
 }

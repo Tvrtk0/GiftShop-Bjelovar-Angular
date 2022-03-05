@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OktaAuthStateService } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 import * as OktaSignIn from '@okta/okta-signin-widget';
+import { Meta, Title } from '@angular/platform-browser';
 
 import appConfig from 'src/app/config/app-config';
 
@@ -15,7 +16,10 @@ export class LoginComponent implements OnInit {
 
   oktaSignin: any;
 
-  constructor(private oktaAuthService: OktaAuthStateService, private oktaAuth: OktaAuth) {
+  constructor(private oktaAuthService: OktaAuthStateService, 
+              private oktaAuth: OktaAuth,
+              private title: Title,
+              private meta: Meta) {
 
       this.oktaSignin = new OktaSignIn({
         logo: 'assets/img/logo.png',
@@ -50,6 +54,11 @@ export class LoginComponent implements OnInit {
         throw error;
       }
     )
+    this.metaTags();
   }
 
+  metaTags() {
+    this.title.setTitle(`Gift Shop Bjelovar - DadoExpres`);
+    this.meta.updateTag({ name: 'robots', content: 'noindex, nofollow'});
+  }
 }
