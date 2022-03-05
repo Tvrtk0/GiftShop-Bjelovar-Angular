@@ -29,7 +29,11 @@ export class ProductCategoryMenuComponent implements OnInit {
   listProductCategories() {
     this.productService.getProductCategories().subscribe(
       data => {
-        this.productCategories = data;
+        this.productCategories = data.sort(function(a, b) {
+          let textA = a.categoryName.toUpperCase();
+          let textB = b.categoryName.toUpperCase();
+          return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        });
       }
     );
   }
